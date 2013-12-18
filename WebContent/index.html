@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<!-- Auto-Generated Application. Version: 2.6.100 -->
+<html>
+       <head>
+			  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+				<link rel="stylesheet" type="text/css" href="css/styles.css" />
+   			   <script id="sap-ui-bootstrap"
+				      type="text/javascript"
+					  src="resources/sap-ui-core.js"
+					  data-sap-ui-theme="sap_goldreflection"
+					  data-sap-ui-libs="sap.ui.commons,sap.ui.ux3,sap.ui.table" >
+			  </script>
+			
+		      <script type="text/javascript"
+		        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKNYFG4eoq5hzs-b_p6Ag7WI4cZveHN6Q&sensor=true">
+		      </script>			 
+		      
+		      <script>
+			     function init_maps(place,latitude, longitude)
+			     {	  	 
+			     	var mapOptions = { center: new google.maps.LatLng(latitude, longitude),
+	  	                               zoom: 18,
+	  	                               mapTypeId: google.maps.MapTypeId.ROADMAP };     	    		
+		            var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions); 		    	 
+		            var pos = new google.maps.LatLng(latitude,longitude);
+		            var mar = new google.maps.Marker({ position: pos, map: map, title: place });		            
+			     }		      
+		      </script>
+   			  <script>
+                     sap.ui.localResources("geolocalization");
+                     var view = sap.ui.view({id:"ID_home", viewName:"geolocalization.resources.home", type:sap.ui.core.mvc.ViewType.JS});
+   			         view.placeAt("content");
+   			  </script>
+
+       </head>
+       <body class="sapUiBody" role="application">
+              <div id="content"></div>
+       </body>
+</html>
